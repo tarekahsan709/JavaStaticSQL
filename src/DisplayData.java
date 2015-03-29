@@ -8,20 +8,30 @@ public class DisplayData
 	
 	public static void getData(ResultSet rs) throws SQLException
 	{
-		while(rs.next())
+		int numRows=0;
+		
+		//----------------------------go to the last row-------------------------------
+		rs.last();
+		
+		//----------------------------take the number of rows--------------------------
+		numRows=rs.getRow();		
+		if(numRows==0)
 		{
-			StringBuffer bf=new StringBuffer();
-			bf.append("Customer serial is"+rs.getInt("customerNumber")+"-");
-			bf.append("Customer name:"+rs.getString("customerName")+" ");
-			bf.append("and phone number :"+rs.getString("phone"));
-
-			
-			System.out.println(""+bf.toString());
-			
-			
-			
+			System.out.println("No serial hs found number between 1 to "+Main.price+" range");
+		}
+		else
+		{
+		//-----------------------move to first from last to show result ---------------
+			rs.first();
+			while(rs.next())
+			{
+				StringBuffer bf=new StringBuffer();
+				bf.append("Customer serial number is :"+rs.getInt("customerNumber")+"");						
+				System.out.println(""+bf.toString());						
+			}
 			
 		}
+		
 	}
 
 }

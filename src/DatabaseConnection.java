@@ -5,6 +5,8 @@ import java.sql.SQLException;
 
 public class DatabaseConnection 
 {
+	//----------------------to connect with database we need provide database this field-----
+
 	private static String userName="root";
 	private static String pass="user";
 	private static String hCon="jdbc:hsqldb:data/explorecalifornia";
